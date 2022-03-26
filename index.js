@@ -2,9 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const bodyparser = require("body-parser");
+const { routes } = require("./routes/routes");
 
 //files imports
 const db = require("./db/db");
+const { models } = require("./models");
 
 require("dotenv/config");
 
@@ -24,6 +26,9 @@ const port = process.env.PORT;
 app.get("/main", (req, res) => {
   res.send("Danish school server");
 });
+
+//apis
+app.use("/user", routes.Student);
 
 //initializing database
 db.sync()
