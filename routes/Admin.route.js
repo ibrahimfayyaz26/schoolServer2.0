@@ -3,10 +3,9 @@ const router = express.Router();
 const {
   signUp,
   signIn,
-  toApprove,
   getAll,
   getUserData,
-} = require("../controller/Student.controller");
+} = require("../controller/Admin.controller");
 
 //Sign up POST
 router.post("/signup", (req, res) => {
@@ -18,22 +17,17 @@ router.post("/signin", (req, res) => {
   signIn(req, res);
 });
 
-//Approve PUT
-router.put("/approve", (req, res) => {
-  toApprove(req, res);
-});
-
-//Users GET
+//Admin users GET
 router.get("/", (req, res) => {
   getAll(req, res);
 });
 
-//Specific user GET
+//Specific admin user GET
 router.get("/:id", (req, res) => {
   getUserData(req, res);
 });
 
-//Specific user delete DELETE
+//Specific admin user delete DELETE
 router.delete("/:id", (req, res) => {
   this.delete(req, res);
 });

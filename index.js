@@ -29,6 +29,7 @@ app.get("/main", (req, res) => {
 
 //apis
 app.use("/user", routes.Student);
+app.use("/staff", routes.Staff);
 
 //initializing database
 db.sync()
